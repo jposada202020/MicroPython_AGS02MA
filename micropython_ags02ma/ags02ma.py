@@ -15,20 +15,13 @@ MicroPython Driver for the AGS02MA TVOC sensor
 """
 
 import time
+import struct
 from micropython import const
-try:
-    import struct
-except ImportError:
-    import ustruct as struct
-
-try:
-    from typing import Tuple
-except ImportError:
-    pass
 
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/jposada202020/MicroPython_AGS02MA.git"
+
 
 _DATA = const(0x00)
 _AGS02MA_CRC8_POLYNOMIAL = const(0x31)
@@ -92,14 +85,14 @@ class AGS02MA:
 
         """
         data = bytearray(5)
-        self._i2c.writeto(self._addr, bytes([0x00]))
+        self._i2c.writeto(self._addr, bytes([addr]))
         time.sleep(delayms / 1000)
         self._i2c.readfrom_into(self._addr, data)
 
         if self._generate_crc(data) != 0:
             raise RuntimeError("CRC check failed")
 
-        val, crc = struct.unpack(">IB", data)
+        val, _ = struct.unpack(">IB", data)
         return val
 
     @property

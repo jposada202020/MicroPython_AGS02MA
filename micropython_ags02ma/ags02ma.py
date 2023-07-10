@@ -24,12 +24,14 @@ __repo__ = "https://github.com/jposada202020/MicroPython_AGS02MA.git"
 
 
 _DATA = const(0x00)
-_AGS02MA_CRC8_POLYNOMIAL = const(0x31)
 _AGS02MA_CRC8_INIT = const(0xFF)
+_READ_VERSION = const(0x11)
+_READ_RESISTANCE = const(0x20)
 
 
 class AGS02MA:
     """Driver for the AGS02MA Sensor connected over I2C.
+    I2C communication speed cannot be higher than 30 kHz
 
     :param ~machine.I2C i2c: The I2C bus the AGS02MA is connected to.
     :param int address: The I2C device address. Defaults to :const:`0x69`
@@ -50,12 +52,14 @@ class AGS02MA:
 
     .. code-block:: python
 
-        i2c = I2C(sda=Pin28), scl=Pin(3))
+        i2c = I2C(1, sda=Pin(2), scl=Pin(3))
         ags02ma = ags02ma.AGS02MA(i2c)
 
     Now you have access to the attributes
 
     .. code-block:: python
+
+        tvoc = ags02ma.TVOC
 
     """
 
@@ -65,8 +69,8 @@ class AGS02MA:
 
         self._check_device()
 
-    def _check_device(self):
-        return self._read_reg(0x11, 30)
+    def _check_device(self) -> None:
+        return self._read_reg(_READ_VERSION, 30)
 
     @property
     def TVOC(self) -> float:
@@ -98,7 +102,7 @@ class AGS02MA:
     @property
     def gas_resistance(self) -> float:
         """The resistance of the MEMS gas sensor in 0.1 Kohm"""
-        return self._read_reg(0x20, 1500) * 100
+        return self._read_reg(_READ_RESISTANCE, 1500) * 100
 
     @staticmethod
     def _generate_crc(data: bytearray) -> int:

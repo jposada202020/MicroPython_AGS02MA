@@ -5,18 +5,18 @@
 
 import time
 from machine import Pin, I2C
-from micropython_ags02ma import ags02ma
+from micropython_ags02ma import AGS02MA
 
 i2c = I2C(1, sda=Pin(2), scl=Pin(3), freq=20000)  # Correct I2C pins for RP2040
-ags = ags02ma.AGS02MA(i2c)
+ags = AGS02MA(i2c)
 
 
 while True:
     try:
-        res = ags.gas_resistance
-        print("Gas resistance: %0.1f Kohms" % (res / 1000))
+        res = ags.gas_resistance / 1000
+        print(f"Gas resistance: {res:.1f} Kohms")
         tvoc = ags.TVOC
-        print("TVOC: %d ppb" % tvoc)
+        print(f"TVOC: {tvoc} ppb")
     except RuntimeError:
         print("Retrying....")
     time.sleep(1)

@@ -6,7 +6,6 @@ Introduction
     :target: https://micropython-ags02ma.readthedocs.io/en/latest/
     :alt: Documentation Status
 
-
 .. image:: https://img.shields.io/pypi/v/micropython-ags02ma.svg
     :alt: latest version on PyPI
     :target: https://pypi.python.org/pypi/micropython-ags02ma

@@ -20,10 +20,8 @@ authors = [
 urls = {Homepage = "https://github.com/jposada202020/MicroPython_AGS02MA"}
 keywords = [
     "sensor",
-    "micropython",
     "ags02ma",
     "TVOC",
-    "sensor",
     "gas",
     "air",
     "quality",

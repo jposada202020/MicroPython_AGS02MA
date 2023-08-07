@@ -33,7 +33,7 @@ To install directly using a WIFI capable board
 
 .. code-block:: shell
 
-    mip install github:jposada202020/MicroPython_AGS02MA
+    mip.install("github:jposada202020/MicroPython_AGS02MA")
 
 
 Installing Library Examples
@@ -49,7 +49,7 @@ To install directly using a WIFI capable board
 
 .. code-block:: shell
 
-    mip install github:jposada202020/MicroPython_AGS02MA/examples.json
+    mip.install("github:jposada202020/MicroPython_AGS02MA/examples.json")
 
 
 Installing from PyPI

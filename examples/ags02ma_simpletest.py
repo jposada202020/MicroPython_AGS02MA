@@ -13,10 +13,8 @@ ags = AGS02MA(i2c)
 
 while True:
     try:
-        res = ags.gas_resistance / 1000
-        print(f"Gas resistance: {res:.1f} Kohms")
-        tvoc = ags.TVOC
-        print(f"TVOC: {tvoc} ppb")
+        print(f"Gas resistance: {ags.gas_resistance / 1000:.1f} Kohms")
+        print(f"TVOC: {ags.TVOC} ppb")
     except RuntimeError:
         print("Retrying....")
     time.sleep(1)

@@ -108,7 +108,7 @@ class AGS02MA:
     def _generate_crc(data: bytearray) -> int:
         """8-bit CRC algorithm for checking data
 
-        :param int data: The data to generate a CRC for
+        :param bytearray data: The data to generate a CRC for
         """
 
         crc = _AGS02MA_CRC8_INIT

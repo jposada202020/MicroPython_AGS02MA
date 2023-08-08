@@ -1,4 +1,4 @@
-AGS02MA
+MicroPython AGS02MA Driver
 =========================================
 
 

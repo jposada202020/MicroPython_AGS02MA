@@ -1,22 +1,16 @@
+⛔️ DEDEPRECATED
+===============
+
+This repository is no longer supported, please consider using alternatives.
+
+.. image:: http://unmaintained.tech/badge.svg
+  :target: http://unmaintained.tech
+  :alt: No Maintenance Intended
+
+
 Introduction
 ============
 
-
-.. image:: https://readthedocs.org/projects/micropython-ags02ma/badge/?version=latest
-    :target: https://micropython-ags02ma.readthedocs.io/en/latest/
-    :alt: Documentation Status
-
-.. image:: https://img.shields.io/pypi/v/micropython-ags02ma.svg
-    :alt: latest version on PyPI
-    :target: https://pypi.python.org/pypi/micropython-ags02ma
-
-.. image:: https://static.pepy.tech/personalized-badge/micropython-ags02ma?period=total&units=international_system&left_color=grey&right_color=blue&left_text=Pypi%20Downloads
-    :alt: Total PyPI downloads
-    :target: https://pepy.tech/project/micropython-ags02ma
-
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/psf/black
-    :alt: Code Style: Black
 
 MicroPython Driver for the AGS02MA TVOC sensor
 
